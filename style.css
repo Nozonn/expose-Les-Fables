@@ -1,0 +1,150 @@
+* {
+    --fg: rgb(12, 66, 35);
+    --bg: rgba(202, 185, 165, 0.454);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+
+header {
+    grid-area: header;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+
+    background: var(--fg);
+    color: var(--bg);
+}
+
+main {
+    grid-area: main;
+
+    margin: 20px;
+
+    display: grid;
+
+    grid-template-rows: 100px 100px 1fr 100px;
+    grid-template-areas: 
+    "title"
+    "question"
+    "selection"
+    "validation";
+
+    border: 1px solid var(--fg);
+    border-radius: 20px;
+}
+
+main > header {
+    grid-area: title;
+    border-radius: 20px 20px 0 0;
+}
+
+main > #questionContainer{
+    grid-area: question;
+    font-family: sans-serif;
+
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid var(--fg);
+}
+
+main > #selection {
+    grid-area: selection;
+
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+main > #selection form {
+    display: grid;
+    grid-template: 40% 40% / 40% 40%;
+    height: 80%;
+    width: 80%;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+main > #selection form .choice {
+    width: 75%;
+    height: 75%;
+    background: var(--fg);
+    color: var(--bg);
+    border-radius: 20px;
+    border: 1px solid var(--fg);
+    transition: .5s;
+}
+
+main > #selection form .choice:hover {
+    scale: 1.1;
+}
+
+main > #confirmation {
+    grid-area: validation;
+    margin: 10px;
+    box-shadow: 0 0 1px 1px black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+main > #confirmation button {
+    height: 50px;
+    width: 15%;
+    background-color:var(--fg);
+    color: var(--bg);
+    border-radius: 20px;
+    border: 1px solid var(--fg);
+    transition: .5s;
+}
+
+main > #confirmation button:hover {
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+button {
+    cursor: pointer;
+}
+
+
+footer {
+    grid-area: footer;
+    background-color: var(--fg);
+    color: var(--bg);
+}
+
+
+#imgAnimationWrongAnswer {
+    animation: spawn 2s linear;
+}
+
+@keyframes spawn {
+    from {
+        transform: translate(0, 0) scale(1) rotate(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(4) rotate(360deg);
+    }
+}
