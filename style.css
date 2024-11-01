@@ -77,7 +77,10 @@ main > #selection form {
     display: grid;
     grid-template: 40% 40% / 40% 40%;
     height: 80%;
+    min-height: 300px;
     width: 80%;
+    max-width: 75rem;
+    min-width: 100px;
     align-content: center;
     align-items: center;
     justify-items: center;
