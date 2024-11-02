@@ -6,23 +6,24 @@
 <meta name="KeyWords" content="JavaScript, DHTML, Animation, Fireworks">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="questions.js"></script>
 <!-- Selection de la question dans questions.js -->
 <script>
-	const idxStart = 1
-	let idxDataSel = idxStart;
-	const nbQuiz = 3
+	const firstQuiz = 1;
+	const nbQuiz = 3;
+
+	let idxDataSel = firstQuiz;
 	let dataSel = data[idxDataSel];
 </script>
 
 </head>
 
-<body LINK="green" ALINK="red" VLINK="red">
+<body>
 
 <header>
 	<h1>QUIZ - <i>Les Fables</i>, Jean de La Fontaine</h1>
-
 </header>
 
 
@@ -32,180 +33,27 @@
 		<h2>QUESTION</h2>
 	</header>
 
-	<div id="questionContainer">
-		<p id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-		<script>
-			document.getElementById("questionContainer").innerHTML = `<p id="question">${dataSel.question}</p>`
-		</script>
-	</div>
+	<div id="questionContainer"></div>
 
 	<div id="selection">
-		<form
-		id="quiz"
-		name="quiz"
-		method="">
-		
-		<!-- <button id="choice1" class="choice" name="1">Choice 1</button>
-		<button id="choice2" class="choice" name="2">Choice 2</button>
-		<button id="choice3" class="choice" name="3">Choice 3</button>
-		<button id="choice4" class="choice" name="4">Choice 4</button> -->
-		
-		<!-- Creating buttons and 
-		 add good and wrong responses 
-		 and add the class good-answer at the good buttons -->
-		<script>
-			let responses = [dataSel.response, ...dataSel.wrong_responses];
-			const btns = [];
-			let idxUnavailable = [];
-
-			for (let i=0; i<4; i++) {
-				const btn = document.createElement("button");
-				btn.id = `choice${i+1}`;
-				btn.classList.add("choice");
-				btn.name = `${i+2}`;
-				let idx = Math.floor(Math.random()*responses.length);
-
-				while ( idxUnavailable.includes(idx) ) {
-					idx = Math.floor(Math.random()*responses.length);
-				}
-
-				idxUnavailable.push(idx)
-				btn.innerText = responses[idx]
-
-				if ( responses[idx] === responses[0] ) {
-					btn.classList.add("good-response")
-				}
-				
-				btns.push(btn);
-				document.getElementById("quiz").appendChild(btn);
-			};
-			
-		</script>
-
-		</form>
-
-
+		<form id="quiz" name="quiz" method=""></form>
 	</div>
 
 	<div id="confirmation">
-		<button id="validation" onClick="funcValidation()">Confirmation</button>
-		<button id="next" onClick="funcNext()">Suivant</button>
-
-		<!-- Function of the button validation -->
-		<script>
-			function fwStart() {
-				myFW1.start();myFW2.start();myFW3.start();myFW4.start();
-
-				let boxAnimation = document.createElement("div");
-				boxAnimation.id = "boxAnimation";
-				document.getElementsByTagName("body")[0].appendChild(boxAnimation)
-
-				const audio = document.createElement("audio");
-				audio.src = "fireworks.mp3";
-				audio.autoplay = true;
-				boxAnimation.appendChild(audio);
-
-				return false;
-			};
-
-			function wrongAnimation() {
-				let boxAnimation = document.createElement("div");
-				boxAnimation.id = "boxAnimation";
-				document.getElementsByTagName("body")[0].appendChild(boxAnimation)
-
-				const img = document.createElement("img");
-				img.setAttribute("src", "cacaEmoji.jpg");
-				img.id = "imgAnimationWrongAnswer"
-				img.style = `
-				width: 100px; height: 100px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%) scale(4) rotate(360deg);
-				`;
-				const audio = document.createElement("audio");
-				audio.src = "wrong-answer.mp3";
-				audio.autoplay = true;
-
-				boxAnimation.appendChild(img)
-				boxAnimation.appendChild(audio);
-				
-			}
-
-			function funcValidation() {
-				for (btn of btns) {
-					if (btn.innerText === dataSel.response) {
-						const lClass = btn.classList;
-						for (c of lClass) {
-							if (c === "select") {
-								return fwStart();
-							};
-						}; 
-						return wrongAnimation();
-						
-					};
-				};
-			};
-		</script>
-
-		<!-- Function of the button next -->
-		 <script>
-			function nextQuiz() {
-				document.getElementById("questionContainer").innerHTML = `<p id="question">${dataSel.question}</p>`;
-
-				responses = [dataSel.response, ...dataSel.wrong_responses];
-				idxUnavailable = [];
-
-				for (let i=0; i<4; i++) {
-					if (btns[i].classList.contains("good-response")) {
-						btns[i].classList.remove("good-response");
-					};
-					console.log(btns[i].classList);
-				}
-
-				for (let i=0; i<4; i++) {
-					let idx = Math.floor(Math.random()*responses.length);
-					
-					while ( idxUnavailable.includes(idx) ) {
-						idx = Math.floor(Math.random()*responses.length);
-					}
-
-					idxUnavailable.push(idx);
-					btns[i].innerText = responses[idx];
-
-					if ( responses[idx] === responses[0] ) {
-						btns[i].classList.add("good-response");
-					}
-				}
-			}
-			function funcNext() {
-
-				document.getElementById("boxAnimation").remove();
-
-				for (let i=0; i<choices.length; i++) {
-					choices[i].setAttribute("style", "background: var(--fg);color: var(--bg);");
-					choices[i].classList.remove("select");
-				};
-
-				myFW1.stop();myFW2.stop();myFW3.stop();myFW4.stop();
-				
-				
-				if (idxDataSel < idxStart+nbQuiz) {
-					idxDataSel ++;
-					dataSel = data[idxDataSel];
-					nextQuiz();
-				}
-				
-				return false;
-			}
-		 </script>
-
+		<button id="validation" >Confirmation</button>
+		<button id="next">Suivant</button>
 	</div>
 </main>
 
 
 <footer>
-	<div><p>NOZONN</p></div>
+	<div id="domain">
+		<p>Les Fables - Exposé 2024</p>
+		<a href="https://github.com/Nozonn"><i class="fa fa-github"></i></a>
+	</div>
+	<div class="copyright">
+		<p>Copyright © 2024. Nozonn. Tous droits réservés.</p>
+	</div>
 </footer>
 
 
