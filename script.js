@@ -80,45 +80,76 @@ function fwStart() {
 function wrongAnimation() {
     let boxAnimation = document.createElement("div");
     boxAnimation.id = "boxAnimation";
-    document.getElementsByTagName("body")[0].appendChild(boxAnimation)
+    document.getElementsByTagName("body")[0].appendChild(boxAnimation);
+    const idWrongAnswer = "animationWrongAnswer";
 
-    const img = document.createElement("img");
-    img.setAttribute("src", "cacaEmoji.jpg");
-    img.id = "imgAnimationWrongAnswer"
-    img.style = `
-    width: 100px; height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(4) rotate(360deg);
-    `;
-    const audio = document.createElement("audio");
-    audio.src = "wrong-answer.mp3";
-    audio.autoplay = true;
+    if (dataSel.wrongAnswerAnimation === "") {
+        const img = document.createElement("img");
+        img.setAttribute("src", "cacaEmoji.jpg");
+        img.id = idWrongAnswer;
+        img.style = `
+        width: 100px; height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(4) rotate(360deg);
+        `;
+        const audio = document.createElement("audio");
+        audio.src = "wrong-answer.mp3";
+        audio.autoplay = true;
 
-    boxAnimation.appendChild(img)
-    boxAnimation.appendChild(audio);
+        boxAnimation.appendChild(img)
+        boxAnimation.appendChild(audio);
+    } else {
+        const video = document.createElement("video");
+        video.src = dataSel.wrongAnswerAnimation;
+        video.id = idWrongAnswer;
+
+        video.style = `
+        width: 100px; height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(6);
+        border-radius: 15px;
+        `;
+
+        playVideo(video);
+
+        boxAnimation.appendChild(video);
+    }
+    
     
 }
 
-function funcValidation() {
-    for (btn of btns) {
-        if (btn.innerText === dataSel.response) {
-            const lClass = btn.classList;
-            for (c of lClass) {
-                if (c === "select") {
-                    return fwStart();
-                };
-            }; 
-            return wrongAnimation();
-            
+async function playVideo(video) {
+    promiseVideoStart = new Promise( () => {
+        const timeoutID = setTimeout( () => {
+            video.play();
+        }, 900);
+
+        cancelPlayVideo =  () => {
+            clearTimeout(timeoutID);
         };
-    };
+
+    });
+}
+
+function funcValidation() {
+    goodAnswer = false;
+    for (let btn of btns) {
+        if (btn.classList.contains("select") && btn.classList.contains("good-response")) {
+            goodAnswer = true;
+            return fwStart();
+        };
+    }; return wrongAnimation();
+    
 };
 // ==============================================
 
 // Function to go to the next question
 function funcNext() {
+    cancelPlayVideo();
     document.getElementById("boxAnimation").remove();
 
     for (let i=0; i<choices.length; i++) {;
@@ -128,11 +159,13 @@ function funcNext() {
 
     myFW1.stop();myFW2.stop();myFW3.stop();myFW4.stop();
 
-    idxDataSel ++;
-    if (idxDataSel < firstQuiz+nbQuiz) {
-        dataSel = data[idxDataSel];
-        quizSpawner();
-    }
+    if (goodAnswer) {
+        idxDataSel ++;
+        if (idxDataSel < firstQuiz+nbQuiz) {
+            dataSel = data[idxDataSel];
+            quizSpawner();
+        };
+    };
     
     return false;
 }
@@ -142,6 +175,8 @@ function funcNext() {
 let responses = [];
 let idxUnavailable = [];
 const btns = []; // List of buttons
+let goodAnswer;
+let cancelPlayVideo;
 quizSpawner();
 
 // Elements of structure

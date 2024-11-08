@@ -1,289 +1,261 @@
 <html>
+
 <head>
-<title>QUIZ - Question 1</title>
+	<title>QUIZ - Qu'est-ce-que qu'une fable ?</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="KeyWords" content="JavaScript, DHTML, Animation, Fireworks">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="KeyWords" content="JavaScript, DHTML, Animation, Fireworks">
 
-<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="questions.js"></script>
-<!-- Selection de la question dans questions.js -->
-<script>
-	const firstQuiz = 4;
-	const nbQuiz = 1;
+	<script src="questions.js"></script>
+	<!-- Selection de la question dans questions.js -->
+	<script>
+		const firstQuiz = 4;
+		const nbQuiz = 1;
 
-	let idxDataSel = firstQuiz;
-	let dataSel = data[idxDataSel];
-</script>
+		let idxDataSel = firstQuiz;
+		let dataSel = data[idxDataSel];
+	</script>
 
 </head>
 
 <body>
 
-<header>
-	<h1>QUIZ - <i>Les Fables</i>, Jean de La Fontaine</h1>
-
-</header>
-
-
-
-<main>
 	<header>
-		<h2>QUESTION</h2>
+		<h1>QUIZ - <i>Les Fables</i>, Jean de La Fontaine</h1>
 	</header>
 
-	<div id="questionContainer"></div>
+	<main>
+		<header>
+			<h2>QUESTION</h2>
+		</header>
 
-	<div id="selection">
-		<form id="quiz" name="quiz" method=""></form>
-	</div>
+		<div id="questionContainer"></div>
 
-	<div id="confirmation">
-		<button id="validation">Confirmation</button>
-		<button id="next">Suivant</button>
-	</div>
-</main>
+		<div id="selection">
+			<form id="quiz" name="quiz" method=""></form>
+		</div>
+
+		<div id="confirmation">
+			<button id="validation">Confirmation</button>
+			<button id="next">Suivant</button>
+		</div>
+	</main>
+
+	<footer>
+		<div id="domain">
+			<p>Les Fables - Exposé 2024</p>
+			<a href="https://github.com/Nozonn"><i class="fa fa-github"></i></a>
+		</div>
+		<div class="copyright">
+			<p>Copyright © 2024. Nozonn. Tous droits réservés.</p>
+		</div>
+	</footer>
 
 
-<footer>
-	<div id="domain">
-		<p>Les Fables - Exposé 2024</p>
-		<a href="https://github.com/Nozonn"><i class="fa fa-github"></i></a>
-	</div>
-	<div class="copyright">
-		<p>Copyright © 2024. Nozonn. Tous droits réservés.</p>
-	</div>
-</footer>
+	<SCRIPT TYPE="text/javascript">
+		/**
+		  * You may use this code for free on any web page provided that 
+		  * these comment lines and the following credit remain in the code.
+		  * Cross Browser Fireworks from http://www.javascript-fx.com
+		  */
+		/*************************************************/
+		if (!window.JSFX) JSFX = new Object();
 
+		if (!JSFX.createLayer) {/*** Include Library Code ***/
 
+			var ns4 = document.layers;
+			var ie4 = document.all;
+			JSFX.objNo = 0;
 
+			JSFX.getObjId = function () { return "JSFX_obj" + JSFX.objNo++; };
 
-<SCRIPT TYPE="text/javascript">
-/**
-  * You may use this code for free on any web page provided that 
-  * these comment lines and the following credit remain in the code.
-  * Cross Browser Fireworks from http://www.javascript-fx.com
-  */
-/*************************************************/
-if(!window.JSFX) JSFX=new Object();
+			JSFX.createLayer = function (theHtml) {
+				var layerId = JSFX.getObjId();
 
-if(!JSFX.createLayer)
-{/*** Include Library Code ***/
+				document.write(ns4 ? "<LAYER  NAME='" + layerId + "'>" + theHtml + "</LAYER>" :
+					"<DIV id='" + layerId + "' style='position:absolute'>" + theHtml + "</DIV>");
 
-var ns4 = document.layers;
-var ie4 = document.all;
-JSFX.objNo=0;
+				var el = document.getElementById ? document.getElementById(layerId) :
+					document.all ? document.all[layerId] :
+						document.layers[layerId];
 
-JSFX.getObjId = function(){return "JSFX_obj" + JSFX.objNo++;};
+				if (ns4)
+					el.style = el;
 
-JSFX.createLayer = function(theHtml)
-{
-	var layerId = JSFX.getObjId();
+				return el;
+			}
+			JSFX.fxLayer = function (theHtml) {
+				if (theHtml == null) return;
+				this.el = JSFX.createLayer(theHtml);
+			}
+			var proto = JSFX.fxLayer.prototype
 
-	document.write(ns4 ? "<LAYER  NAME='"+layerId+"'>"+theHtml+"</LAYER>" : 
-				   "<DIV id='"+layerId+"' style='position:absolute'>"+theHtml+"</DIV>" );
+			proto.moveTo = function (x, y) { this.el.style.left = x; this.el.style.top = y; }
+			proto.setBgColor = function (color) { this.el.style.backgroundColor = color; }
+			proto.clip = function (x1, y1, x2, y2) { this.el.style.clip = "rect(" + y1 + " " + x2 + " " + y2 + " " + x1 + ")"; }
+			if (ns4) {
+				proto.clip = function (x1, y1, x2, y2) {
+					this.el.style.clip.top = y1; this.el.style.clip.left = x1;
+					this.el.style.clip.bottom = y2; this.el.style.clip.right = x2;
+				}
+				proto.setBgColor = function (color) { this.el.bgColor = color; }
+			}
+			if (window.opera)
+				proto.setBgColor = function (color) { this.el.style.color = color == null ? 'transparent' : color; }
 
-	var el = 	document.getElementById	? document.getElementById(layerId) :
-			document.all 		? document.all[layerId] :
-							  document.layers[layerId];
+			if (window.innerWidth) {
+				gX = function () { return innerWidth; };
+				gY = function () { return innerHeight; };
+			}
+			else {
+				gX = function () { return document.body.clientWidth; };
+				gY = function () { return document.body.clientHeight; };
+			}
 
-	if(ns4)
-		el.style=el;
+			/*** Example extend class ***/
+			JSFX.fxLayer2 = function (theHtml) {
+				this.superC = JSFX.fxLayer;
+				this.superC(theHtml + "C");
+			}
+			JSFX.fxLayer2.prototype = new JSFX.fxLayer;
+		}/*** End Library Code ***/
 
-	return el;
-}
-JSFX.fxLayer = function(theHtml)
-{
-	if(theHtml == null) return;
-	this.el = JSFX.createLayer(theHtml);
-}
-var proto = JSFX.fxLayer.prototype
+		/*************************************************/
 
-proto.moveTo     = function(x,y){this.el.style.left = x;this.el.style.top=y;}
-proto.setBgColor = function(color) { this.el.style.backgroundColor = color; } 
-proto.clip       = function(x1,y1, x2,y2){ this.el.style.clip="rect("+y1+" "+x2+" "+y2+" "+x1+")"; }
-if(ns4){
-	proto.clip = function(x1,y1, x2,y2){
-		this.el.style.clip.top	 =y1;this.el.style.clip.left	=x1;
-		this.el.style.clip.bottom=y2;this.el.style.clip.right	=x2;
-	}
-	proto.setBgColor=function(color) { this.el.bgColor = color; }
-}
-if(window.opera)
-	proto.setBgColor = function(color) { this.el.style.color = color==null?'transparent':color; }
+		/*** Class Firework extends FxLayer ***/
+		JSFX.Firework = function (fwImages) {
+			window[this.id = JSFX.getObjId()] = this;
+			this.imgId = "i" + this.id;
+			this.fwImages = fwImages;
+			this.numImages = fwImages.length;
+			this.superC = JSFX.fxLayer;
+			this.superC("<img src='" + fwImages[0].src + "' name='" + this.imgId + "'>");
 
-if(window.innerWidth)
-{
-	gX=function(){return innerWidth;};
-	gY=function(){return innerHeight;};
-}
-else
-{
-	gX=function(){return document.body.clientWidth;};
-	gY=function(){return document.body.clientHeight;};
-}
-
-/*** Example extend class ***/
-JSFX.fxLayer2 = function(theHtml)
-{
-	this.superC = JSFX.fxLayer;
-	this.superC(theHtml + "C");
-}
-JSFX.fxLayer2.prototype = new JSFX.fxLayer;
-}/*** End Library Code ***/
-
-/*************************************************/
-
-/*** Class Firework extends FxLayer ***/
-JSFX.Firework = function(fwImages)
-{
-	window[ this.id = JSFX.getObjId() ] = this;
-	this.imgId = "i" + this.id;
-	this.fwImages  = fwImages;
-	this.numImages = fwImages.length;
-	this.superC = JSFX.fxLayer;
-	this.superC("<img src='"+fwImages[0].src+"' name='"+this.imgId+"'>");
-
-	this.img = document.layers ? this.el.document.images[0] : document.images[this.imgId];
-	this.step = 0;
-	this.timerId = -1;
-	this.x = 0;
-	this.y = 0;
-	this.dx = 0;
-	this.dy = 0;
-	this.ay = 0.2;
-	this.state = "OFF";
-}
-JSFX.Firework.prototype = new JSFX.fxLayer;
-
-JSFX.Firework.prototype.getMaxDy = function()
-{
-	var ydiff = gY() - 130;
-	var dy    = 1;
-	var dist  = 0;
-	var ay    = this.ay;
-	while(dist<ydiff)
-	{
-		dist += dy;
-		dy+=ay;
-	}
-	return -dy;
-}
-JSFX.Firework.prototype.setFrame = function()
-{
-//	this.img.src=this.fwName+"/"+this.step+".gif";
-	this.img.src=this.fwImages[ this.step ].src;
-}
-JSFX.Firework.prototype.animate = function()
-{
-
-	if(this.state=="OFF")
-	{
-		
-		this.step = 0;
-		this.x = -200;
-		this.y = -200;
-		this.moveTo(this.x, this.y);
-		this.setFrame();
-		if(Math.random() > .95)
-		{
-			this.x = (gX()-200)*Math.random();
-			this.y = (gY()-200)*Math.random();
-			this.moveTo(this.x, this.y);
-			this.state = "EXPLODE";
+			this.img = document.layers ? this.el.document.images[0] : document.images[this.imgId];
+			this.step = 0;
+			this.timerId = -1;
+			this.x = 0;
+			this.y = 0;
+			this.dx = 0;
+			this.dy = 0;
+			this.ay = 0.2;
+			this.state = "OFF";
 		}
-	}
-	else if(this.state == "EXPLODE")
-	{
-		this.step++;
-		if(this.step < this.numImages)
-			this.setFrame();
-		else
-			this.state="OFF";
-	}
-}
-/*** END Class Firework***/
+		JSFX.Firework.prototype = new JSFX.fxLayer;
 
-/*** Class FireworkDisplay extends Object ***/
-JSFX.FireworkDisplay = function(n, fwImages, numImages)
-{
-	window[ this.id = JSFX.getObjId() ] = this;
-	this.timerId = -1;
-	this.fireworks = new Array();
-	this.imgArray = new Array();
-	this.loadCount=0;
-	this.loadImages(fwImages, numImages);
+		JSFX.Firework.prototype.getMaxDy = function () {
+			var ydiff = gY() - 130;
+			var dy = 1;
+			var dist = 0;
+			var ay = this.ay;
+			while (dist < ydiff) {
+				dist += dy;
+				dy += ay;
+			}
+			return -dy;
+		}
+		JSFX.Firework.prototype.setFrame = function () {
+			//	this.img.src=this.fwName+"/"+this.step+".gif";
+			this.img.src = this.fwImages[this.step].src;
+		}
+		JSFX.Firework.prototype.animate = function () {
 
-	for(var i=0 ; i<n ; i++)
-		this.fireworks[this.fireworks.length] = new JSFX.Firework(this.imgArray);
-}
-JSFX.FireworkDisplay.prototype.loadImages = function(fwName, numImages)
-{
-	for(var i=0 ; i<numImages ; i++)
-	{
-		this.imgArray[i] = new Image();
-		this.imgArray[i].obj = this;
-		this.imgArray[i].onload = window[this.id].imageLoaded;
-		this.imgArray[i].src = fwName+"/"+i+".gif";
-	}
-}
-JSFX.FireworkDisplay.prototype.imageLoaded = function()
-{
-	this.obj.loadCount++;
-}
+			if (this.state == "OFF") {
 
-JSFX.FireworkDisplay.prototype.animate = function()
-{
-status = this.loadCount;
-	if(this.loadCount < this.imgArray.length)
-		return;
+				this.step = 0;
+				this.x = -200;
+				this.y = -200;
+				this.moveTo(this.x, this.y);
+				this.setFrame();
+				if (Math.random() > .95) {
+					this.x = (gX() - 200) * Math.random();
+					this.y = (gY() - 200) * Math.random();
+					this.moveTo(this.x, this.y);
+					this.state = "EXPLODE";
+				}
+			}
+			else if (this.state == "EXPLODE") {
+				this.step++;
+				if (this.step < this.numImages)
+					this.setFrame();
+				else
+					this.state = "OFF";
+			}
+		}
+		/*** END Class Firework***/
 
-	for(var i=0 ; i<this.fireworks.length ; i++)
-		this.fireworks[i].animate();
-}
-JSFX.FireworkDisplay.prototype.start = function()
-{
-	if(this.timerId == -1)
-	{
-		this.state = "OFF";
-		this.timerId = setInterval("window."+this.id+".animate()", 40);
-	}
+		/*** Class FireworkDisplay extends Object ***/
+		JSFX.FireworkDisplay = function (n, fwImages, numImages) {
+			window[this.id = JSFX.getObjId()] = this;
+			this.timerId = -1;
+			this.fireworks = new Array();
+			this.imgArray = new Array();
+			this.loadCount = 0;
+			this.loadImages(fwImages, numImages);
 
-}
-JSFX.FireworkDisplay.prototype.stop = function()
-{
-	if(this.timerId != -1)
-	{
-		clearInterval(this.timerId);
-		this.timerId = -1;
-		for(var i=0 ; i<this.fireworks.length ; i++)
-		{
-			this.fireworks[i].moveTo(-100, -100);
-			this.fireworks[i].step = 0;;
-			this.fireworks[i].state = "OFF";
-		}	
-	}
-}
-/*** END Class FireworkDisplay***/
+			for (var i = 0; i < n; i++)
+				this.fireworks[this.fireworks.length] = new JSFX.Firework(this.imgArray);
+		}
+		JSFX.FireworkDisplay.prototype.loadImages = function (fwName, numImages) {
+			for (var i = 0; i < numImages; i++) {
+				this.imgArray[i] = new Image();
+				this.imgArray[i].obj = this;
+				this.imgArray[i].onload = window[this.id].imageLoaded;
+				this.imgArray[i].src = fwName + "/" + i + ".gif";
+			}
+		}
+		JSFX.FireworkDisplay.prototype.imageLoaded = function () {
+			this.obj.loadCount++;
+		}
 
-JSFX.FWStart = function()
-{
-	if(JSFX.FWLoad)JSFX.FWLoad();
-	myFW1.start();
-	myFW2.start();
-	myFW3.start();
-	myFW4.start();
-}
-myFW1 = new JSFX.FireworkDisplay(5, "fw05", 21);
-myFW2 = new JSFX.FireworkDisplay(5, "fw08", 26);
-myFW3 = new JSFX.FireworkDisplay(5, "fw11", 30);
-myFW4 = new JSFX.FireworkDisplay(5, "fw13", 15);
-JSFX.FWLoad=window.onload;
-//window.onload=JSFX.FWStart;
-</SCRIPT>
+		JSFX.FireworkDisplay.prototype.animate = function () {
+			status = this.loadCount;
+			if (this.loadCount < this.imgArray.length)
+				return;
 
+			for (var i = 0; i < this.fireworks.length; i++)
+				this.fireworks[i].animate();
+		}
+		JSFX.FireworkDisplay.prototype.start = function () {
+			if (this.timerId == -1) {
+				this.state = "OFF";
+				this.timerId = setInterval("window." + this.id + ".animate()", 40);
+			}
 
-<script src="script.js"></script>
+		}
+		JSFX.FireworkDisplay.prototype.stop = function () {
+			if (this.timerId != -1) {
+				clearInterval(this.timerId);
+				this.timerId = -1;
+				for (var i = 0; i < this.fireworks.length; i++) {
+					this.fireworks[i].moveTo(-100, -100);
+					this.fireworks[i].step = 0;;
+					this.fireworks[i].state = "OFF";
+				}
+			}
+		}
+		/*** END Class FireworkDisplay***/
+
+		JSFX.FWStart = function () {
+			if (JSFX.FWLoad) JSFX.FWLoad();
+			myFW1.start();
+			myFW2.start();
+			myFW3.start();
+			myFW4.start();
+		}
+		myFW1 = new JSFX.FireworkDisplay(5, "fw05", 21);
+		myFW2 = new JSFX.FireworkDisplay(5, "fw08", 26);
+		myFW3 = new JSFX.FireworkDisplay(5, "fw11", 30);
+		myFW4 = new JSFX.FireworkDisplay(5, "fw13", 15);
+		JSFX.FWLoad = window.onload;
+		//window.onload=JSFX.FWStart;
+	</SCRIPT>
+
+	<script src="script.js"></script>
 </body>
+
 </html>
