@@ -4,7 +4,7 @@ window.data = [
         question: "Mais à quoi cela sert d'écrire les fables ?",
         response: "Plaire et Instruire",
         wrong_responses: ["Ennuyer et Instruire", "Être long à lire et Ennuyer", "Plaire et Rendre moins intelligent"],
-        wrongAnswerAnimation: "./cat-nop.mp4",
+        wrongAnswerAnimation: "cat-nop.mp4",
     },
 
     // question2-3-4.html
@@ -12,7 +12,7 @@ window.data = [
         question: "Facile : Jean de La Fontaine fait parti de quel mouvement littéraire ?",
         response: "Classicisme",
         wrong_responses: ["Romantisme", "Humanisme", "Réalisme"],
-        wrongAnswerAnimation: "./zidane-honon.mp4",
+        wrongAnswerAnimation: "zidane-honon.mp4",
     },
 
     // question2-3-4.html
@@ -21,7 +21,7 @@ window.data = [
         response: "Poète, moraliste, dramaturge, librettiste, romancier et fabuliste",
         wrong_responses: ["Poète, fabuliste", "moraliste, fabuliste, Poète", 
             "dramaturge, librettiste, fabuliste, moraliste"],
-        wrongAnswerAnimation: "./asterix-non.mp4",
+        wrongAnswerAnimation: "asterix-non.mp4",
     }, 
 
     // question2-3-4.html
@@ -40,6 +40,6 @@ window.data = [
         response: "Un court récit en vers ou en prose",
         wrong_responses: ["Un long récit en vers", 
             "Un court récit uniquement en vers", "Un long récit uniquement en prose"],
-        wrongAnswerAnimation: "./persoBizarre-nop.mp4",
+        wrongAnswerAnimation: "persoBizarre-nop.mp4",
     },
 ];
