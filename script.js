@@ -176,7 +176,7 @@ let responses = [];
 let idxUnavailable = [];
 const btns = []; // List of buttons
 let goodAnswer;
-let cancelPlayVideo;
+let cancelPlayVideo = () => {};
 quizSpawner();
 
 // Elements of structure
