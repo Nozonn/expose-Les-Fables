@@ -37,9 +37,9 @@ window.data = [
     // question-qu-est-ce-que-c-est-une-fable.html
     {
         question: "Qu'est-ce qu'une fable ?",
-        response: "Un court récit en vers ou en prose",
-        wrong_responses: ["Un long récit en vers", 
-            "Un court récit uniquement en vers", "Un long récit uniquement en prose"],
+        response: "Un court ou long récit, écrit en vers ou en prose",
+        wrong_responses: ["Un long récit de 5 pages écrit en vers", 
+            "Un court récit écrit uniquement en vers", "Un long récit écrit uniquement en prose"],
         wrongAnswerAnimation: "persoBizarre-nop.mp4",
     },
 ];
