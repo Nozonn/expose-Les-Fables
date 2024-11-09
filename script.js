@@ -83,42 +83,27 @@ function wrongAnimation() {
     document.getElementsByTagName("body")[0].appendChild(boxAnimation);
     const idWrongAnswer = "animationWrongAnswer";
 
-    if (dataSel.wrongAnswerAnimation === "") {
-        const img = document.createElement("img");
-        img.setAttribute("src", "cacaEmoji.jpg");
-        img.id = idWrongAnswer;
-        img.style = `
-        width: 100px; height: 100px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(4) rotate(360deg);
-        `;
-        const audio = document.createElement("audio");
-        audio.src = "wrong-answer.mp3";
-        audio.autoplay = true;
 
-        boxAnimation.appendChild(img)
-        boxAnimation.appendChild(audio);
-    } else {
-        const video = document.createElement("video");
-        video.src = dataSel.wrongAnswerAnimation;
-        video.id = idWrongAnswer;
+    const video = document.createElement("video");
+    video.src = dataSel.wrongAnswerAnimation;
+    video.id = idWrongAnswer;
 
-        video.style = `
-        width: 100px; height: 100px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(6);
-        border-radius: 15px;
-        `;
+    video.style = `
+    width: 100px; height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(6);
+    `;
 
-        playVideo(video);
+    playVideo(video);
 
-        boxAnimation.appendChild(video);
-    }
+    varStyle.style.setProperty("--fg", "rgb(125, 12, 0)");
+    varStyle.style.setProperty("--bg", "grey");
     
+    
+    boxAnimation.appendChild(video);
+
     
 }
 
@@ -133,7 +118,7 @@ async function playVideo(video) {
         };
 
     });
-}
+};
 
 function funcValidation() {
     goodAnswer = false;
@@ -145,12 +130,22 @@ function funcValidation() {
     }; return wrongAnimation();
     
 };
+
+function canValidate() {
+    for (let btn of btns) {
+        if (btn.classList.contains("select")) return true;
+    } return false
+}
+
 // ==============================================
 
 // Function to go to the next question
 function funcNext() {
     cancelPlayVideo();
     document.getElementById("boxAnimation").remove();
+
+    varStyle.style.setProperty("--fg", "rgb(12, 66, 35)");
+    varStyle.style.setProperty("--bg", "rgba(202, 185, 165, 0.454)");
 
     for (let i=0; i<choices.length; i++) {;
         choices[i].setAttribute("style", "background: var(--fg);color: var(--bg);")
@@ -168,7 +163,7 @@ function funcNext() {
     };
     
     return false;
-}
+};
 
 
 // Creation of the quiz
@@ -184,6 +179,7 @@ const quizForm = document.getElementById("quiz");
 const btnConfimation = document.getElementById("validation");
 const btnNext = document.getElementById("next");
 const choices = quizForm.children; // HTML Collection of buttons
+const varStyle = document.querySelector(":root");
 
 // Display
 setEventChoose(); // Style of the selected button
@@ -195,11 +191,13 @@ quizForm.addEventListener("submit", ev=> {
 });
 
 btnConfimation.addEventListener("click", ev=>{
-    funcValidation();
-    delEventChoose();
-
-    btnConfimation.disabled = true;
-    btnNext.disabled = false;
+    if (canValidate()) {
+        funcValidation();
+        delEventChoose();
+    
+        btnConfimation.disabled = true;
+        btnNext.disabled = false;
+    }
 
 });
 
@@ -214,3 +212,34 @@ btnNext.addEventListener("click", ev=> {
     btnConfimation.disabled = false;
     btnNext.disabled = true;
 });
+
+
+addEventListener("keydown", (e) => {
+    if ((e.key === " " || e.key === "Enter") && !btnConfimation.disabled) {
+        if (canValidate()) {
+            funcValidation();
+            delEventChoose();
+    
+            btnConfimation.disabled = true;
+            btnNext.disabled = false;
+        }
+    } else if (e.key === "ArrowRight" && !btnNext.disabled) {
+        for (let i=0; i<btns.length; i++) {
+            btns[i].disabled = false;
+        };
+      
+        funcNext();
+        setEventChoose();
+    
+        btnConfimation.disabled = false;
+        btnNext.disabled = true;
+    } else if (e.key === "&") {
+        choose(1);
+    } else if (e.key === "é") {
+        choose(2);
+    } else if (e.key === "\"") {
+        choose(3);
+    } else if (e.key === "\'") {
+        choose(4);
+    }
+}) 
