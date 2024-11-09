@@ -90,9 +90,9 @@ function wrongAnimation() {
 
     video.style = `
     width: 100px; height: 100px;
-    position: absolute;
-    top: 50%;
+    position: fixed;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%) scale(6);
     `;
 
@@ -101,10 +101,7 @@ function wrongAnimation() {
     varStyle.style.setProperty("--fg", "rgb(125, 12, 0)");
     varStyle.style.setProperty("--bg", "grey");
     
-    
     boxAnimation.appendChild(video);
-
-    
 }
 
 async function playVideo(video) {
