@@ -45,6 +45,9 @@ main {
 
     border: 1px solid var(--fg);
     border-radius: 20px;
+
+    max-width: 1372px;
+    justify-self: center;
 }
 
 main > header {
