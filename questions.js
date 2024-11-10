@@ -26,7 +26,7 @@ window.data = [
 
     // question2-3-4.html
     { 
-        question: "Difficile : Quels sont les dates de naissances et de mort de La Fontaine ?",
+        question: "Difficile : Quels sont les dates de naissance et de mort de La Fontaine ?",
         response: "8 juillet 1621 - 13 avril 1695",
         wrong_responses: ["7 juillet 1622 - 13 avril 1695", "7 juillet 1620 - 13 avril 1695", 
             "7 juillet 1621 - 14 avril 1695"],
