@@ -30,7 +30,7 @@ window.data = [
         response: "8 juillet 1621 - 13 avril 1695",
         wrong_responses: ["7 juillet 1622 - 13 avril 1695", "7 juillet 1620 - 13 avril 1695", 
             "7 juillet 1621 - 14 avril 1695"],
-        wrongAnswerAnimation: "mario-no.mp4"
+        wrongAnswerAnimation: "madameNo.mp4"
 
     },
 
