@@ -88,10 +88,6 @@ function wrongAnimation() {
     video.src = dataSel.wrongAnswerAnimation;
     video.id = idWrongAnswer;
 
-    if (dataSel.wrongAnswerAnimation === "mario-no.js") {
-        document.getElementById(idWrongAnswer).addEventListner("loadedmetadata", ()=>this.volume = 1.0; )
-    }
-
     video.style = `
     width: 100px; height: 100px;
     position: fixed;
