@@ -9,7 +9,7 @@ window.data = [
 
     // question2-3-4.html
     {
-        question: "Facile : Jean de La Fontaine fait parti de quel mouvement littéraire ?",
+        question: "Facile : Jean de La Fontaine fait partie de quel mouvement littéraire ?",
         response: "Classicisme",
         wrong_responses: ["Romantisme", "Humanisme", "Réalisme"],
         wrongAnswerAnimation: "zidane-honon.mp4",
@@ -17,7 +17,7 @@ window.data = [
 
     // question2-3-4.html
     {
-        question: "Moyen : Quels sont les activités de Jean de La Fontaine ?",
+        question: "Moyen : Quelles sont les activités de Jean de La Fontaine ?",
         response: "Poète, moraliste, dramaturge, librettiste, romancier et fabuliste",
         wrong_responses: ["Poète, fabuliste", "moraliste, fabuliste, Poète", 
             "dramaturge, librettiste, fabuliste, moraliste"],
@@ -26,7 +26,7 @@ window.data = [
 
     // question2-3-4.html
     { 
-        question: "Difficile : Quels sont les dates de naissance et de mort de La Fontaine ?",
+        question: "Difficile : Quelles sont les dates de naissance et de mort de La Fontaine ?",
         response: "8 juillet 1621 - 13 avril 1695",
         wrong_responses: ["7 juillet 1622 - 13 avril 1695", "7 juillet 1620 - 13 avril 1695", 
             "7 juillet 1621 - 14 avril 1695"],
