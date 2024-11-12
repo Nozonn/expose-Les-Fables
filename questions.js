@@ -21,7 +21,7 @@ window.data = [
         response: "Poète, moraliste, dramaturge, librettiste, romancier et fabuliste",
         wrong_responses: ["Poète, fabuliste", "moraliste, fabuliste, Poète", 
             "dramaturge, librettiste, fabuliste, moraliste"],
-        wrongAnswerAnimation: "asterix-non.mp4",
+        wrongAnswerAnimation: "madameNo.mp4",
     }, 
 
     // question2-3-4.html
@@ -30,7 +30,7 @@ window.data = [
         response: "8 juillet 1621 - 13 avril 1695",
         wrong_responses: ["7 juillet 1622 - 13 avril 1695", "7 juillet 1620 - 13 avril 1695", 
             "7 juillet 1621 - 14 avril 1695"],
-        wrongAnswerAnimation: "madameNo.mp4"
+        wrongAnswerAnimation: "mario-no.mp4"
 
     },
 
